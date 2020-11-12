@@ -8,6 +8,6 @@ namespace AirBookings .Models
 
         //[ForeignKey("Aircraft")]
         public int AircraftId { get; set; }
-        public string Seat { get; set; }
+        public string SeatNumber { get; set; }
     }
 }

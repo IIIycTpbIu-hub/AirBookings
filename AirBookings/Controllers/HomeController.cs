@@ -10,10 +10,22 @@ namespace AirBookings.Controllers
 {
     public class HomeController : Controller
     {
+        AirBookingsContext db = new AirBookingsContext();
         public ActionResult Index()
         {
-            AirBookingsContext db = new AirBookingsContext();
-            var result = db.Aircrafts.ToList().Count;
+            var flights = db.Flights.ToArray();
+            ViewBag.Flights = flights;
+
+            var aircrafts = db.Aircrafts.ToArray();
+            ViewBag.Aircrafts = from a in aircrafts
+                                from f in flights
+                                where a.Id == f.AircraftId
+                                select a;
+            var seats = db.Seats.ToArray();
+            ViewBag.Seats = from s in seats
+                            from a in aircrafts
+                            where s.AircraftId == a.Id
+                            select s;
             return View();
         }
 
