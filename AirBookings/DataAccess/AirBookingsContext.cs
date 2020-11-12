@@ -1,4 +1,4 @@
-﻿using AirBooking.Models;
+﻿using AirBookings.Models;
 using System.Data.Entity;
 
 namespace AirBookings.DataAccess

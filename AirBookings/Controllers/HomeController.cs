@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AirBookings.DataAccess;
+using AirBookings.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +12,8 @@ namespace AirBookings.Controllers
     {
         public ActionResult Index()
         {
+            AirBookingsContext db = new AirBookingsContext();
+            var result = db.Aircrafts.ToList().Count;
             return View();
         }
 

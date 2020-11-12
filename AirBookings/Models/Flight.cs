@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AirBooking.Models
+namespace AirBookings.Models
 {
     public class Flight
     {

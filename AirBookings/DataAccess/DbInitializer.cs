@@ -1,4 +1,4 @@
-﻿using AirBooking.Models;
+﻿using AirBookings.Models;
 using System.Data.Entity;
 
 namespace AirBookings.DataAccess
@@ -8,7 +8,6 @@ namespace AirBookings.DataAccess
         protected override void Seed(AirBookingsContext context)
         {
             context.Aircrafts.Add(new Aircraft() { Id = 1, Model = "SU-31", Range = 2000 });
-            base.Seed(context);
         }
     }
 }

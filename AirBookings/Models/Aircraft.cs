@@ -1,4 +1,4 @@
-﻿namespace AirBooking.Models
+﻿namespace AirBookings.Models
 {
     public class Aircraft
     {
