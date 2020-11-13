@@ -1,7 +1,10 @@
 ﻿using AirBookings.DataAccess;
 using AirBookings.Models;
+using NPOI.HSSF;
+using NPOI.HSSF.UserModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,6 +29,7 @@ namespace AirBookings.Controllers
                             from a in aircrafts
                             where s.AircraftId == a.Id
                             select s;
+            GetFile();
             return View();
         }
 
@@ -41,6 +45,35 @@ namespace AirBookings.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Buy(int id)
+        {
+            ViewBag.BookId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public string Buy(Booking purchase)
+        {
+            purchase.SeatId = ViewBag.BookId;
+            db.Bookings.Add(purchase);
+            db.SaveChanges();
+            return "Спасибо," + purchase.PassengerName + ", за покупку!";
+        }
+
+        public string Square(double a, double b)
+        {
+            double s = a * b;
+            return "<h2>Площадь прямоугольника со сторонами " + a +
+            " и " + b + " равна " + s + "</h2>";
+        }
+
+        public FileResult GetFile()
+        {
+            string path = Server.MapPath("~/App_Data/Price.pdf");
+            return File(path, "application/pdf", "Price.pdf");
         }
     }
 }
