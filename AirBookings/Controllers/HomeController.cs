@@ -71,8 +71,8 @@ namespace AirBookings.Controllers
 
         public FileResult GetFile()
         {
-            string path = Server.MapPath("~/App_Data/Price.pdf");
-            return File(path, "application/pdf", "Price.pdf");
+            string path = Server.MapPath("~/App_Data/Price.xlsx");
+            return File(path, "application/xlsx", "Price.xlsx");
         }
     }
 }
