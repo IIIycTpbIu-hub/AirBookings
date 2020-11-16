@@ -1,7 +1,5 @@
 ﻿using AirBookings.DataAccess;
 using AirBookings.Models;
-using NPOI.HSSF;
-using NPOI.HSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -48,20 +46,21 @@ namespace AirBookings.Controllers
         }
 
         [HttpGet]
-        public ActionResult Buy(int id)
+        public ActionResult Buy(int id = 0)
         {
-            ViewBag.BookId = id;
+            ViewBag.BookingSeatId = id;
             return View();
         }
 
         [HttpPost]
         public string Buy(Booking purchase)
         {
-            purchase.SeatId = ViewBag.BookId;
+            purchase.Id = db.Bookings.ToArray().Length + 1;
+            purchase.FlightId = 1;
             db.Bookings.Add(purchase);
             db.SaveChanges();
-            return "Спасибо," + purchase.PassengerName + ", за покупку!";
-        }
+            return "Спасибо, " + purchase.PassengerName + ", за покупку!";
+         }
 
         public string Square(double a, double b)
         {

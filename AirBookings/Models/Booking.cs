@@ -13,6 +13,6 @@ namespace AirBookings.Models
         public int SeatId { get; set; }
 
         public string PassengerName { get; set; }
-        public string PassengerSurname { get; set; }
+        public string PassengerEmail { get; set; }
     }
 }
