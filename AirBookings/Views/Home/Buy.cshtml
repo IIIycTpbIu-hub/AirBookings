@@ -10,22 +10,46 @@
 <body>
     <div>
         <h3>Форма оформления покупки</h3>
-        <form method="post" action="">
-            <input type="hidden" value="@ViewBag.BookingSeatId" name="SeatId" />
+        @using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+        {
+            @Html.Hidden("SeatId", ViewBag.BookingSeatId as string)
             <table>
                 <tr>
                     <td><p>Введите свое имя </p></td>
-                    <td><input type="text" name="PassengerName" /></td>
+                    <td>@Html.TextBox("PassengerName", "Введите свое имя")</td>
                 </tr>
                 <tr>
                     <td><p>Введите email адрес :</p></td>
                     <td>
-                        <input type="text" name="PassengerEmail" />
+                        @Html.TextArea("PassengerEmail", "Введите e-mail", 5, 50, null);
                     </td>
                 </tr>
                 <tr><td><input type="submit" value="Отправить" /></td><td></td></tr>
             </table>
-        </form>
+        }
+    </div>
+    <div>Демонстрация остальных хелперов</div>
+    <div>
+        @Html.Password("Password", "Ваш пароль")
+    </div>
+    <div>Выберите класс обслуживания</div>
+    <div>
+        @Html.RadioButton("class", "econom")
+        <span>Эконом</span> <br />
+        @Html.RadioButton("class", "comfort")
+        <span>Комфорт</span> <br />
+        @Html.RadioButton("color", "business", true)
+        <span>Бизнесс</span>
+    </div>
+    <div>
+        @Html.CheckBox("delivery", false)
+        @Html.Label("Заказать дополнительные услуги");
+    </div>
+    <div>
+        @Html.DropDownList("countires", new SelectList(new string[] {"Трансфер до отеля","Бронирование отеля"}))
+    </div>
+    <div>
+        @Html.ListBox("countires", new MultiSelectList(new string[] { "Трансфер до отеля", "Бронирование отеля" }))
     </div>
 </body>
 </html>
