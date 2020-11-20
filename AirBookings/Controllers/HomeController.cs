@@ -45,6 +45,22 @@ namespace AirBookings.Controllers
             return View(products.ToList());
         }
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            SelectList empl = new SelectList(db2.Employees, "Id", "Name");
+            ViewBag.Employees = empl;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Product product)
+        {
+            product.Employee.Position = "";
+            db2.Products.Add(product);
+            db2.SaveChanges();
+            return RedirectToAction("GetProducts");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
