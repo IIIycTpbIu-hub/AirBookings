@@ -171,17 +171,24 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataAccess\AirBookingsContext.cs" />
     <Compile Include="DataAccess\DbInitializer.cs" />
+    <Compile Include="DataAccess\Lab3Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Aircraft.cs" />
     <Compile Include="Models\Airport.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Seat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\AirBookings.mdf" />
+    <Content Include="App_Data\AirBookings_log.ldf">
+      <DependentUpon>AirBookings.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -221,9 +228,7 @@
     <Content Include="Views\Shared\NewMaster.cshtml" />
     <Content Include="Views\Home\GetDirections.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
