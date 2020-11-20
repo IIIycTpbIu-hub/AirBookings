@@ -1,0 +1,8 @@
+﻿@model IEnumerable<AirBookings.Models.Flight>
+<h2>Список направлений</h2>
+<ul>
+    @foreach (var s in Model)
+    {
+        <li>@s.DepartureAirport + @s.ArrivalAirport</li>
+    }
+</ul>

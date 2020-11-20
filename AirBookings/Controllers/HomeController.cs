@@ -31,6 +31,13 @@ namespace AirBookings.Controllers
             return View(db.Seats);
         }
 
+        public ActionResult GetDirections()
+        {
+            ViewBag.Message = "Доступные направления";
+
+            return PartialView(db.Flights);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
