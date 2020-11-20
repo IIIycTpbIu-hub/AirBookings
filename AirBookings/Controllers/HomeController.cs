@@ -28,7 +28,7 @@ namespace AirBookings.Controllers
                             where s.AircraftId == a.Id
                             select s;
             GetFile();
-            return View();
+            return View(db.Seats);
         }
 
         public ActionResult About()

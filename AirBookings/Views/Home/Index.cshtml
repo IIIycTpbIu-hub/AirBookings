@@ -1,41 +1,26 @@
-﻿@{
+﻿@model IEnumerable<AirBookings.Models.Seat>
+@{
     ViewBag.Title = "Air Bookings";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    <h3>Доступные бронирования:</h3>
-    <table border="1">
-        @foreach (var flight in ViewBag.Flights)
+<<div>
+    <h3>Свободные места</h3>
+    <table>
+        <tr class="header">
+            <td><p>Id</p></td>
+            <td><p>Код самолета</p></td>
+            <td><p>Номер места</p></td>
+            <td></td>
+        </tr>
+        @foreach (var s in Model)
         {
             <tr>
-                <td>@flight.DepartureAirport - @flight.ArrivalAirport</td>
+                <td><p>@s.Id</p></td>
+                <td><p>@s.AircraftId</p></td>
+                <td><p>@s.SeatNumber</p></td>
+                <td><p><a href="/Home/Buy/@s.Id">Купить</a></p></td>
             </tr>
-            foreach (var aircraft in ViewBag.Aircrafts)
-            {
-                if (aircraft.Id == flight.AircraftId)
-                {
-                    <tr>
-                        <td>@aircraft.Model</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table>
-                                @foreach (var seat in ViewBag.Seats)
-                                {
-                                    if (seat.AircraftId == aircraft.Id)
-                                    {
-                                    <tr>
-                                        <td>@seat.SeatNumber</td>
-                                        <td><p><a href="/Home/Buy/@seat.Id">Buy</a></p></td>
-                                    </tr>
-                                    }
-                                }
-                            </table>
-                        </td>
-                    </tr>
-                }
-            }
         }
     </table>
 </div>
