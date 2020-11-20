@@ -227,6 +227,7 @@
     <Content Include="Views\Home\Buy.cshtml" />
     <Content Include="Views\Shared\NewMaster.cshtml" />
     <Content Include="Views\Home\GetDirections.cshtml" />
+    <Content Include="Views\Home\GetProducts.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

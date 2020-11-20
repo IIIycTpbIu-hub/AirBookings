@@ -12,6 +12,7 @@ namespace AirBookings.Controllers
     public class HomeController : Controller
     {
         AirBookingsContext db = new AirBookingsContext();
+        Lab3Context db2 = new Lab3Context();
         public ActionResult Index()
         {
             var flights = db.Flights.ToArray();
@@ -36,6 +37,12 @@ namespace AirBookings.Controllers
             ViewBag.Message = "Доступные направления";
 
             return PartialView(db.Flights);
+        }
+
+        public ActionResult GetProducts()
+        {
+            var products = db2.Products.Include("Employee");
+            return View(products.ToList());
         }
 
         public ActionResult About()
