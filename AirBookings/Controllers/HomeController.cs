@@ -102,6 +102,22 @@ namespace AirBookings.Controllers
             return RedirectToAction("GetProducts");
         }
 
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Product product = db2.Products.Find(id);
+            if(product != null)
+            {
+                db2.Products.Remove(product);
+                db2.SaveChanges();
+            }
+            return RedirectToAction("GetProducts");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
