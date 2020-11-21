@@ -229,6 +229,7 @@
     <Content Include="Views\Home\GetDirections.cshtml" />
     <Content Include="Views\Home\GetProducts.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

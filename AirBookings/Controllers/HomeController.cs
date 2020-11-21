@@ -61,6 +61,30 @@ namespace AirBookings.Controllers
             return RedirectToAction("GetProducts");
         }
 
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Product product = db2.Products.Find(id);
+            if(product != null)
+            {
+                SelectList empl = new SelectList(db2.Employees, "Id", "Name", product.EmployeeId);
+                ViewBag.Employees = empl;
+                return View(product);
+            }
+            return RedirectToAction("GetProducts");
+        }
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+            db2.Entry(product).State = System.Data.Entity.EntityState.Modified;
+            db2.SaveChanges();
+            return RedirectToAction("GetProducts");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
