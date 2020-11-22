@@ -1,5 +1,6 @@
 ﻿using AirBookings.DataAccess;
 using AirBookings.Models;
+using AirBookings.Models.Filtring;
 using AirBookings.Models.Pageing;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,25 @@ namespace AirBookings.Controllers
                             select s;
             GetFile();
             return View(db.Seats);
+        }
+
+        public ActionResult FilterView(int? employee)
+        {
+            IQueryable<Product> products = db2.Products.Include("Employee");
+            
+            if(employee != null && employee != 0)
+            {
+                products = products.Where(p => p.EmployeeId == employee);
+            }
+            List<Employee> employeeList = db2.Employees.ToList();
+            employeeList.Insert(0, new Employee { Name = "All", Id = 0, Position = "", Salary = 0 });
+
+            ProductFilterList filterList = new ProductFilterList
+            {
+                Products = products.ToList(),
+                Employees = new SelectList(employeeList, "Id", "Name", "Position")
+            };
+            return View(filterList); 
         }
 
         public ActionResult PageView(int page = 1)
