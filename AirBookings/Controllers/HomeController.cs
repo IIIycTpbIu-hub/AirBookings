@@ -34,6 +34,11 @@ namespace AirBookings.Controllers
             return View(db.Seats);
         }
 
+        public ActionResult FirstProduct()
+        {
+            return View(db2.Products.FirstOrDefault());
+        }
+
         public ActionResult FilterView(int? employee)
         {
             IQueryable<Product> products = db2.Products.Include("Employee");
