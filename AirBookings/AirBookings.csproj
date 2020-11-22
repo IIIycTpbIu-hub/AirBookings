@@ -237,6 +237,7 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\PageView.cshtml" />
     <Content Include="Views\Home\FilterView.cshtml" />
+    <Content Include="Views\Home\FirstProduct.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
