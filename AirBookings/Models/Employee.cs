@@ -12,5 +12,11 @@ namespace AirBookings.Models
         public string SecondName { get; set; }
         public string Position { get; set; }
         public decimal Salary { get; set; }
+        public ICollection<Product> Products { get; set; }
+        public Employee()
+        {
+            Products = new List<Product>();
+        }
+
     }
 }
