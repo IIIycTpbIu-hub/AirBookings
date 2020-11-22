@@ -1,5 +1,6 @@
 ﻿using AirBookings.DataAccess;
 using AirBookings.Models;
+using AirBookings.Models.Pageing;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,6 +31,16 @@ namespace AirBookings.Controllers
                             select s;
             GetFile();
             return View(db.Seats);
+        }
+
+        public ActionResult PageView(int page = 1)
+        {
+            var products = db2.Products.Include("Employee").ToList();
+            int pageSize = 5;
+            var productsOnPage = products.Skip((page - 1) * pageSize).Take(pageSize);
+            PagePag pag = new PagePag { PageNumber = page, PageSize = pageSize, TotalProducts = products.Count };
+            ViewProducts viewProducts = new ViewProducts { PagePag = pag, Products = productsOnPage};
+            return View(viewProducts);
         }
 
         public ActionResult GetDirections()
