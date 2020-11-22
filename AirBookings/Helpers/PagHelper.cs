@@ -14,11 +14,12 @@ namespace AirBookings.Helpers
         public static MvcHtmlString PageLinks(this HtmlHelper htmlHelper, PagePag pagePag, Func<int, string> pageUrl)
         {
             StringBuilder sb = new StringBuilder();
-            for (int i = 1; i < pagePag.TotalPages; i++)
+            for (int i = 1; i <= pagePag.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
                 tag.MergeAttribute("href", pageUrl(i));
-                if(i == pagePag.PageNumber)
+                tag.InnerHtml = i.ToString();
+                if (i == pagePag.PageNumber)
                 {
                     tag.AddCssClass("selected");
                     tag.AddCssClass("btn-primary");

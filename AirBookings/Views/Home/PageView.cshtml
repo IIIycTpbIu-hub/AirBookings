@@ -1,0 +1,29 @@
+﻿@model AirBookings.Models.Pageing.ViewProducts
+@using AirBookings.Helpers
+@{
+    ViewBag.Title = "PageView";
+}
+
+<h2>PageView</h2>
+
+<table class="table">
+    <tr>
+        <th>Наименование услуги</th>
+        <th>Стоимость</th>
+        <th>Исполнитель</th>
+        <th></th>
+    </tr>
+    @foreach (var product in Model.Products)
+    {
+        <tr>
+            <td>@product.ProductName</td>
+            <td>@product.Cost</td>
+            <td>@product.Employee.Id</td>
+        </tr>
+    }
+</table>
+
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PagePag, p => Url.Action("PageView", new { page = p }))
+</div>

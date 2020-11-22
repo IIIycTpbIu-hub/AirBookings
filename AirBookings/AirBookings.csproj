@@ -175,11 +175,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PagHelper.cs" />
     <Compile Include="Models\Aircraft.cs" />
     <Compile Include="Models\Airport.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\Pageing\PagePag.cs" />
+    <Compile Include="Models\Pageing\ViewProducts.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Seat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -231,6 +234,7 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\PageView.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
