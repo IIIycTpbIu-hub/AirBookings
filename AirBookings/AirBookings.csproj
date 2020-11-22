@@ -180,6 +180,7 @@
     <Compile Include="Models\Airport.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Filtring\ProductFilterList.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\Pageing\PagePag.cs" />
     <Compile Include="Models\Pageing\ViewProducts.cs" />
@@ -235,6 +236,7 @@
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\PageView.cshtml" />
+    <Content Include="Views\Home\FilterView.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
