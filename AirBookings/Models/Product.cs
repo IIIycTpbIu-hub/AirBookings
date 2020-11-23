@@ -12,9 +12,11 @@ namespace AirBookings.Models
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
-        [Display(Name ="Название услуги")]
+        [Display(Name = "Название услуги")]
+        [Required]
         public string ProductName { get; set; }
         [Display(Name = "Стоимость")]
+        [Required]
         public decimal Cost { get; set; }
         [Column("Employee_Id")]
         [Display(Name = "Исполнитель")]
