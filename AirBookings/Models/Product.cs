@@ -13,7 +13,7 @@ namespace AirBookings.Models
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
         [Display(Name = "Название услуги")]
-        [Required]
+        [Required(ErrorMessage ="Вам необходимо заполнить поле Название услуги")]
         public string ProductName { get; set; }
         [Display(Name = "Стоимость")]
         [Required]
